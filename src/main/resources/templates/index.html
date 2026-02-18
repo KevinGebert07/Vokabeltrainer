@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NavigationsmenÜ</title>
+        <link rel="stylesheet" type="text/css" href="./Style/stylesheet.css">
+        <script defer src="./js/script.js"></script>
+    </head>
+
+    <!-- Verlinkungen zu Google Fonts für Logos und Schriftarten -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
+
+
+    <body>
+        
+        <aside class="sidebar">
+
+            <!-- Seitenleiste Kopf -->
+            <header class="sidebar-header">
+                <a href="#" class="header-logo">
+                    <img src="./img/Angemeldet Logo.svg" alt="Logo Angemeldet">
+                </a>
+                <button class="toggler">
+                    <span class="material-symbols-rounded">chevron_left</span>
+                </button>
+            </header>
+            
+            <nav class ="sidebar-nav">
+
+            <!-- Primärer Seitenleisten Kopf -->
+            <ul class="nav-list primary-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">dashboard</span>
+                        <span class="nav-label">Startseite</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">counter_1</span>
+                        <span class="nav-label">Englisch</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">counter_2</span>
+                        <span class="nav-label">Russisch</span>
+                    </a>
+                </li>
+            </ul>
+                       
+            <!-- Sekundäre Seitenleiste Fußzeile -->
+            <ul class="nav-list secondary-nav">
+            
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">account_circle</span>
+                        <span class="nav-label">Mein Profil</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">logout</span>
+                        <span class="nav-label">Abmelden</span>
+                    </a>
+                </li>
+
+
+            </ul>
+
+
+
+            </nav>
+
+        </aside>
+        
+
+        <!-- Fußleiste --> 
+        <footer class="footer">
+            <div class="footer__addr">
+                <h1 class="footer__logo">vokabeltrainer</h1>
+                    
+                <h2>Kontakt - Kevin Anthony Gebert</h2>
+                
+                <address>
+                    35428 Langgöns, Fichtenweg 3<br>
+                    <a class="footer__btn" href="mailto:kevin.anthony.gebert@tls-giessen.eu">Kontaktiere mich</a>
+                </address>
+            </div>
+            
+            <ul class="footer__nav">
+                <li class="nav__item">
+                    <h2 class="nav__title">Rechtliches</h2>
+                
+                    <ul class="nav__ul">
+                        <li>
+                            <a href="./impressum.html">Impressum</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="nav__item nav__item--extra">
+                    
+                    <h2 class="nav__title"><a href="./index.html">Überblick</a></h2>
+                    
+                    <ul class="nav__ul nav__ul--extra">
+                        <li>
+                            <a href="./3dDrucker.html">Der 3D-Drucker</a>
+                        </li>
+                        
+                        <li>
+                            <a href="./druckverfahren.html">Die Druckverfahren</a>
+                        </li>
+                        
+                        <li>
+                            <a href="./materialien.html">Die Materialien</a>
+                        </li>
+                        
+                        <li>
+                            <a href="./einsatzgebiete.html">Die Einsatzgebiete</a>
+                        </li>
+                        
+                        <li>
+                            <a href="./software.html">Die Software</a>
+                        </li>
+
+                        <li>
+                            <a href="./gcode.html">Der Gcode</a>
+                        </li>
+                    </ul>
+                </li>                            
+            </ul>
+                
+                <div class="legal">
+                    <p>&copy; 2026 - alle Rechte vorbehalten</p>
+                    
+                    <div class="legal__links">
+                        <span>Gemacht mit <span class="heart">♥</span>
+                    </div>
+                </div>
+        </footer>            
+    </body>
+</html>
