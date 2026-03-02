@@ -1,189 +1,186 @@
 <!DOCTYPE html>
 <html lang="de" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anmeldeseite</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/style/stylesheet.css}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Anmeldeseite</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/style/stylesheet.css}">
 
-</head>
+    </head>
 
-<!-- Verlinkungen zu Google Fonts für Logos und Schriftarten -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
+    <!-- Verlinkungen zu Google Fonts für Logos und Schriftarten -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
 
-<body>
-    <main class="page-content">
-        <div class="login-wrapper">
-            <div class="container" id="container">
-                <div class="form-container sign-up">
-                    <form>
-                        <h2>Nutzerkonto erstellen</h2>
-                        <span>Gib einen Nutzernamen und ein Passwort ein</span>
-                        <br>
-                        <input type="text" placeholder="Nutzername">
-                        <input type="password" placeholder="Passwort">
-                        <br>
-                        <button>Registrieren</button>
-                    </form>
-                </div>
-                <div class="form-container sign-in">
-                    <form>
-                        <h2>Anmelden / Einloggen</h2>
-                        <span>Gib deinen Nutzernamen und dein Passwort ein</span>
-                        <br>
-                        <input type="text" placeholder="Nutzername">
-                        <input type="password" placeholder="Passwort">
-                        <br>
-                        <button>Anmelden</button>
-                    </form>
-                </div>
-                <div class="toggle-container">
-                    <div class="toggle">
-                        <div class="toggle-panel toggle-left">
-                            <h1>Willkommen in der Welt der Vokabeln!</h1>
-                            <p>Erstelle deine Zugangsdaten um deine Seiteninhalte abzurufen.</p>
-                            <button class="hidden" id="login">Ich möchte mich aber <br>Anmelden</button>
-                        </div>
-                        <div class="toggle-panel toggle-right">
-                            <h1>Willkommen zurück!</h1>
-                            <p>Gib deine Zugangsdaten ein um die Seiteninhalte zu nutzen.</p>
-                            <button class="hidden" id="register">Ich möchte mich aber <br>Registrieren</button>
+    <body>
+        <main class="page-content">
+            <div class="login-wrapper">
+                <div class="container" id="container">
+                    <div class="form-container sign-up">
+                        <form>
+                            <h2>Nutzerkonto erstellen</h2>
+                            <span>Gib einen Nutzernamen und ein Passwort ein</span>
+                            <br>
+                            <input type="text" placeholder="Nutzername">
+                            <input type="password" placeholder="Passwort">
+                            <br>
+                            <button>Registrieren</button>
+                        </form>
+                    </div>
+                    <div class="form-container sign-in">
+                        <form>
+                            <h2>Anmelden / Einloggen</h2>
+                            <span>Gib deinen Nutzernamen und dein Passwort ein</span>
+                            <br>
+                            <input type="text" placeholder="Nutzername">
+                            <input type="password" placeholder="Passwort">
+                            <br>
+                            <button>Anmelden</button>
+                        </form>
+                    </div>
+                    <div class="toggle-container">
+                        <div class="toggle">
+                            <div class="toggle-panel toggle-left">
+                                <h1>Willkommen in der Welt der Vokabeln!</h1>
+                                <p>Erstelle deine Zugangsdaten um deine Seiteninhalte abzurufen.</p>
+                                <button class="hidden" id="login">Ich möchte mich aber <br>Anmelden</button>
+                            </div>
+                            <div class="toggle-panel toggle-right">
+                                <h1>Willkommen zurück!</h1>
+                                <p>Gib deine Zugangsdaten ein um die Seiteninhalte zu nutzen.</p>
+                                <button class="hidden" id="register">Ich möchte mich aber <br>Registrieren</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
 
 
-<aside class="sidebar collapsed">
+        <aside class="sidebar collapsed">
 
-    <!-- Seitenleiste Kopf -->
-    <header class="sidebar-header">
-        <a href="#" class="header-logo">
-            <img src="/img/Angemeldet%20Logo.svg" alt="Logo Angemeldet">
-        </a>
-        <button class="toggler sidebar-toggler">
-            <span class="material-symbols-rounded">chevron_left</span>
-        </button>
-
-        <button class="toggler menu-toggler">
-            <span class="material-symbols-rounded">menu</span>
-        </button>
-    </header>
-
-    <nav class ="sidebar-nav">
-
-        <!-- Primärer Seitenleisten Kopf -->
-        <ul class="nav-list primary-nav">
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <span class="nav-icon material-symbols-rounded">dashboard</span>
-                    <span class="nav-label">Startseite</span>
+            <!-- Seitenleiste Kopf -->
+            <header class="sidebar-header">
+                <a href="#" class="header-logo">
+                    <img src="./img/Angemeldet Logo.svg" alt="Logo Angemeldet">
                 </a>
-                <span class="nav-tooltip">Startseite<br>(Aktuelle Seite)</span>
-            </li>
+                <button class="toggler sidebar-toggler">
+                    <span class="material-symbols-rounded">chevron_left</span>
+                </button>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <span class="nav-icon material-symbols-rounded">counter_1</span>
-                    <span class="nav-label">Englisch</span>
-                </a>
-                <span class="nav-tooltip">Englisch</span>
-            </li>
+                <button class="toggler menu-toggler">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+            </header>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <span class="nav-icon material-symbols-rounded">counter_2</span>
-                    <span class="nav-label">Russisch</span>
-                </a>
-                <span class="nav-tooltip">Russisch</span>
-            </li>
-        </ul>
+            <nav class ="sidebar-nav">
 
-        <!-- Sekundäre Seitenleiste Fußzeile -->
-        <ul class="nav-list secondary-nav">
+                <!-- Primärer Seitenleisten Kopf -->
+                <ul class="nav-list primary-nav">
+                    <li class="nav-item">
+                        <a th:href="@{/index}" class="nav-link">
+                            <span class="nav-icon material-symbols-rounded">dashboard</span>
+                            <span class="nav-label">Startseite</span>
+                        </a>
+                        <span class="nav-tooltip">Startseite</span>
+                    </li>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link active">
-                    <span class="nav-icon material-symbols-rounded">account_circle</span>
-                    <span class="nav-label">Anmeldung</span>
-                </a>
-                <span class="nav-tooltip">Anmeldung<br>(Aktuelle Seite)</span>
-            </li>
+                    <li class="nav-item">
+                        <a th:href="@{/englisch}" class="nav-link">
+                            <span class="nav-icon material-symbols-rounded">counter_1</span>
+                            <span class="nav-label">Englisch</span>
+                        </a>
+                        <span class="nav-tooltip">Englisch</span>
+                    </li>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <span class="nav-icon material-symbols-rounded">logout</span>
-                    <span class="nav-label">Abmelden</span>
-                </a>
-                <span class="nav-tooltip">Abmelden</span>
-            </li>
+                    <li class="nav-item">
+                        <a th:href="@{/russisch}" class="nav-link">
+                            <span class="nav-icon material-symbols-rounded">counter_2</span>
+                            <span class="nav-label">Russisch</span>
+                        </a>
+                        <span class="nav-tooltip">Russisch</span>
+                    </li>
+                </ul>
+
+                <!-- Sekundäre Seitenleiste Fußzeile -->
+                <ul class="nav-list secondary-nav">
+
+                    <li class="nav-item">
+                        <a th:href="@{/login}" class="nav-link active">
+                            <span class="nav-icon material-symbols-rounded">account_circle</span>
+                            <span class="nav-label">Anmeldung<br>(Aktuelle Seite)</span>
+                        </a>
+                        <span class="nav-tooltip">Anmeldung<br>(Aktuelle Seite)</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:href="@{/abgemeldet}" class="nav-link">
+                            <span class="nav-icon material-symbols-rounded">logout</span>
+                            <span class="nav-label">Abmelden</span>
+                        </a>
+                        <span class="nav-tooltip">Abmelden</span>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <script th:src="@{/script/script.js}"></script>
 
 
-        </ul>
 
+        <!-- Fußleiste -->
+        <footer class="footer">
+            <div class="footer__addr">
+                <h1 class="footer__logo">vokabeltrainer</h1>
 
+                <h2>Kontakt - Kevin Anthony Gebert</h2>
 
-    </nav>
+                <address>
+                    35428 Langgöns, Fichtenweg 3<br>
+                    <a class="footer__btn" href="mailto:kevin.anthony.gebert@tls-giessen.eu">Kontaktiere mich</a>
+                </address>
+            </div>
 
-</aside>
+            <ul class="footer__nav">
+                <li class="nav__item">
+                    <h2 class="nav__title">Allgemeines & Rechtliches</h2>
 
-<script th:src="@{/script/script.js}"></script>
+                    <ul class="nav__ul">
+                        <li>
+                            <a th:href="@{/login}">Registrierung & Anmeldung</a>
+                        </li>
 
-
-
-<!-- Fußleiste -->
-<footer class="footer">
-    <div class="footer__addr">
-        <h1 class="footer__logo">vokabeltrainer</h1>
-
-        <h2>Kontakt - Kevin Anthony Gebert</h2>
-
-        <address>
-            35428 Langgöns, Fichtenweg 3<br>
-            <a class="footer__btn" href="mailto:kevin.anthony.gebert@tls-giessen.eu">Kontaktiere mich</a>
-        </address>
-    </div>
-
-    <ul class="footer__nav">
-        <li class="nav__item">
-            <h2 class="nav__title">Allgemeines & Rechtliches</h2>
-
-            <ul class="nav__ul">
-                <li>
-                    <a href="impressum.html">Mein Profil</a>
+                        <li>
+                            <a th:href="@{/impressum}">Impressum</a>
+                        </li>
+                    </ul>
                 </li>
 
-                <li>
-                    <a href="impressum.html">Impressum</a>
-                </li>
-            </ul>
-        </li>
+                <li class="nav__item nav__item--extra">
 
-        <li class="nav__item nav__item--extra">
+                    <h2 class="nav__title">Überblick</h2>
 
-            <h2 class="nav__title">Überblick</a></h2>
+                    <ul class="nav__ul nav__ul--extra">
+                        <li>
+                            <a th:href="@{/russisch}">Russisch</a>
+                        </li>
 
-            <ul class="nav__ul nav__ul--extra">
-                <li>
-                    <a href="./3dDrucker.html">Russisch</a>
-                </li>
-
-                <li>
-                    <a href="./druckverfahren.html">Englisch</a>
+                        <li>
+                            <a th:href="@{/englisch}">Englisch</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
-        </li>
-    </ul>
 
-    <div class="legal">
-        <p>&copy; 2026 - alle Rechte vorbehalten</p>
+            <div class="legal">
+                <p>&copy; 2026 - alle Rechte vorbehalten</p>
 
-        <div class="legal__links">
-            <span>Gemacht mit <span class="heart">♥</span></span>
-        </div>
-    </div>
-</footer>
-</body>
+                <div class="legal__links">
+                    <span>Gemacht mit <span class="heart">♥</span></span>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>

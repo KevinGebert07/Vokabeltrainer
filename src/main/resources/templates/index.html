@@ -34,7 +34,7 @@
             <!-- Primärer Seitenleisten Kopf -->
             <ul class="nav-list primary-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a th:href="@{/index}" class="nav-link active">
                         <span class="nav-icon material-symbols-rounded">dashboard</span>
                         <span class="nav-label">Startseite<br>(Aktuelle Seite)</span>
                     </a>
@@ -42,7 +42,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a th:href="@{/englisch}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">counter_1</span>
                         <span class="nav-label">Englisch</span>
                     </a>
@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a th:href="@{/russisch}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">counter_2</span>
                         <span class="nav-label">Russisch</span>
                     </a>
@@ -64,23 +64,20 @@
                 <li class="nav-item">
                     <a th:href="@{/login}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">account_circle</span>
-                        <span class="nav-label">Mein Profil</span>
+                        <span class="nav-label">Anmeldung</span>
                     </a>
-                    <span class="nav-tooltip">Mein Profil</span>
+                    <span class="nav-tooltip">Anmeldung</span>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a th:href="@{/abgemeldet}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">logout</span>
                         <span class="nav-label">Abmelden</span>
                     </a>
                     <span class="nav-tooltip">Abmelden</span>
                 </li>
 
-
             </ul>
-
-
 
             </nav>
 
@@ -91,10 +88,18 @@
 
 
         <main class="page-content">
-        <br> Dies ist ein Text zum Testen
-        <br> Kevin war hier #2026
-        </main>
+            <div class="startpage-wrapper">
+                <h1>Willkommen auf der Vokabeltrainer Website!</h1>
+                <h2>Ein Vokabeltrainer der es dir ermöglicht deine Vokabeln zu speichern und sie zu lernen.</h2>
+                <br><p>Nun hast du die Möglichkeit dich umzuschauen, indem du eine Seite deiner Wahl über die Navigations-Seitenleiste links auswählst oder indem du runter zur Fußleiste scrollst und dort eine Wahl triffst.</p>
+                <p>Klappe gerne die Seitenleiste links auf und beginne damit dich über den Reiter "Anmeldung" zu registrieren</p>
+                <p>Falls dies schon geschehen ist, kannst du dich über die gleiche Seite mit deinen Profildaten anmelden</p>
 
+                <img class="startpage-image"
+                     th:src="@{/img/Vokabeln lernen mit allen Sinnen.png}"
+                     alt="Vokabeln lernen mit allen Sinnen">
+            </div>
+        </main>
 
 
 
@@ -117,26 +122,26 @@
                 
                     <ul class="nav__ul">
                         <li>
-                            <a href="./impressum.html">Mein Profil</a>
+                            <a th:href="@{/login}">Registrierung & Anmeldung</a>
                         </li>
 
                         <li>
-                            <a href="./impressum.html">Impressum</a>
+                            <a th:href="@{/impressum}">Impressum</a>
                         </li>
                     </ul>
                 </li>
                 
                 <li class="nav__item nav__item--extra">
                     
-                    <h2 class="nav__title">Überblick</a></h2>
+                    <h2 class="nav__title">Überblick</h2>
                     
                     <ul class="nav__ul nav__ul--extra">
                         <li>
-                            <a href="./3dDrucker.html">Russisch</a>
+                            <a th:href="@{/russisch}">Russisch</a>
                         </li>
                         
                         <li>
-                            <a href="./druckverfahren.html">Englisch</a>
+                            <a th:href="@{/englisch}">Englisch</a>
                         </li>
                     </ul>
                 </li>                            

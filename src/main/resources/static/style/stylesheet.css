@@ -1,5 +1,7 @@
-/* Import von Google Fonts - Poppins Schriftart*/
+/* ------------------------- Import von Google Fonts - Poppins Schriftart ------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* ------------------------- A L L G E M E I N E S ------------------------- */
 
 * {
     margin: 0;
@@ -20,6 +22,92 @@ body {
     margin-left: 116px;
     display: flex;
 }
+
+
+
+/* ------------------------- S T A R T S E I T E ------------------------- */
+
+.startpage-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;   /* Text über Bild */
+    align-items: center;      /* horizontal zentrieren */
+    justify-content: center;  /* vertikal zentrieren */
+    text-align: center;       /* Text mittig */
+}
+
+.startpage-image {
+    max-width: 900px;
+    height: auto;
+    margin-top: 1.5rem;
+}
+
+
+
+/* ------------------------- A B M E L D U N G ------------------------- */
+
+.logout-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;   /* Text über Bild */
+    align-items: center;      /* horizontal zentrieren */
+    justify-content: center;  /* vertikal zentrieren */
+    text-align: center;       /* Text mittig */
+}
+
+.primary-outline-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 50px;
+    border-radius: 8px;
+    border: 1px solid #5b64bd;
+    background: #5b64bd;      /* gewünschtes Lila */
+    color: #ffffff;           /* weiße Schrift */
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.primary-outline-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(91, 100, 189, 0.4);
+}
+
+
+
+/* ------------------------- R U S S I S C H ------------------------- */
+
+.rus-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;   /* Text über Bild */
+    align-items: center;      /* horizontal zentrieren */
+    justify-content: center;  /* vertikal zentrieren */
+    text-align: center;       /* Text mittig */
+}
+
+
+
+/* ------------------------- E N G L I S C H ------------------------- */
+
+.en-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;   /* Text über Bild */
+    align-items: center;      /* horizontal zentrieren */
+    justify-content: center;  /* vertikal zentrieren */
+    text-align: center;       /* Text mittig */
+}
+
+
+
+/* ------------------------- A N M E L D U N G ------------------------- */
 
 .login-wrapper {
     flex: 1;
@@ -139,21 +227,6 @@ body {
     }
 }
 
-.social-icons{
-    margin: 20px 0;
-}
-
-.social-icons a{
-    border: 1px solid #ccc;
-    border-radius: 20%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 3px;
-    width: 40px;
-    height: 40px;
-}
-
 .toggle-container{
     position: absolute;
     top: 0;
@@ -221,7 +294,8 @@ body {
 }
 
 
-/* Seitenleiste / Navigationsleiste */
+
+/* ------------------------- S E I T E N L E I S T E ------------------------- */
 
 .sidebar {
     position: fixed;
@@ -458,7 +532,7 @@ body {
 
 
 
-/* ------------------- Fußleiste -------------------------------- */
+/* ------------------------- F U S S L E I S T E ------------------------- */
 
 /* Start der Fußleiste */
 *, *:before, *:after {

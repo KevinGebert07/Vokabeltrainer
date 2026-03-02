@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Englisch</title>
+        <title>Abgemeldet</title>
         <link rel="stylesheet" type="text/css" th:href="@{/style/stylesheet.css}">
 
     </head>
@@ -42,11 +42,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a th:href="@{/englisch}" class="nav-link active">
+                        <a th:href="@{/englisch}" class="nav-link">
                             <span class="nav-icon material-symbols-rounded">counter_1</span>
-                            <span class="nav-label">Englisch<br>(Aktuelle Seite)</span>
+                            <span class="nav-label">Englisch</span>
                         </a>
-                        <span class="nav-tooltip">Englisch<br>(Aktuelle Seite)</span>
+                        <span class="nav-tooltip">Englisch</span>
                     </li>
 
                     <li class="nav-item">
@@ -70,11 +70,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a th:href="@{/abgemeldet}" class="nav-link">
+                        <a th:href="@{/abgemeldet}" class="nav-link active">
                             <span class="nav-icon material-symbols-rounded">logout</span>
-                            <span class="nav-label">Abmelden</span>
+                            <span class="nav-label">Abmelden<br>(Aktuelle Seite)</span>
                         </a>
-                        <span class="nav-tooltip">Abmelden</span>
+                        <span class="nav-tooltip">Abmelden<br>(Aktuelle Seite)</span>
                     </li>
 
                 </ul>
@@ -88,10 +88,20 @@
 
 
         <main class="page-content">
-                <span class="en-wrapper">
-                    <h1>Englische Seite</h1>
-                </span>
+            <div class="logout-wrapper">
+                <h1>Du bist nun abgemeldet!</h1>
+                <h2>Mach dir keine Sorgen! - Deine Vokabeln wurden selbstverständlich gespeichert</h2>
+                <br><p>Beim nächsten Anmelden kannst du also dort weitermachen wo du aufgehört hast</p>
+                <br><br>
+                <h3>Über diesen Button kommst du wieder auf die Startseite</h3>
+
+                <a th:href="@{/index}" class="primary-outline-btn">
+                    Ich möchte zur Startseite!
+                </a>
+            </div>
         </main>
+
+
 
 
         <!-- Fußleiste -->

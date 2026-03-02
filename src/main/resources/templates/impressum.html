@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Startseite</title>
+        <title>Impressum</title>
         <link rel="stylesheet" type="text/css" th:href="@{/style/stylesheetImpressum.css}">
 
     </head>
@@ -18,7 +18,7 @@
         <!-- Seitenleiste Kopf -->
         <header class="sidebar-header">
             <a href="#" class="header-logo">
-                <img src="/img/Angemeldet%20Logo.svg" alt="Logo Angemeldet">
+                <img src="./img/Angemeldet Logo.svg" alt="Logo Angemeldet">
             </a>
             <button class="toggler sidebar-toggler">
                 <span class="material-symbols-rounded">chevron_left</span>
@@ -34,15 +34,15 @@
             <!-- Primärer Seitenleisten Kopf -->
             <ul class="nav-list primary-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a th:href="@{/index}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">dashboard</span>
                         <span class="nav-label">Startseite</span>
                     </a>
-                    <span class="nav-tooltip">Startseite<br>(Aktuelle Seite)</span>
+                    <span class="nav-tooltip">Startseite</span>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a th:href="@{/englisch}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">counter_1</span>
                         <span class="nav-label">Englisch</span>
                     </a>
@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a th:href="@{/russisch}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">counter_2</span>
                         <span class="nav-label">Russisch</span>
                     </a>
@@ -62,25 +62,22 @@
             <ul class="nav-list secondary-nav">
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a th:href="@{/login}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">account_circle</span>
                         <span class="nav-label">Anmeldung</span>
                     </a>
-                    <span class="nav-tooltip">Anmeldung<br>(Aktuelle Seite)</span>
+                    <span class="nav-tooltip">Anmeldung</span>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a th:href="@{/abgemeldet}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">logout</span>
                         <span class="nav-label">Abmelden</span>
                     </a>
                     <span class="nav-tooltip">Abmelden</span>
                 </li>
 
-
             </ul>
-
-
 
         </nav>
 
