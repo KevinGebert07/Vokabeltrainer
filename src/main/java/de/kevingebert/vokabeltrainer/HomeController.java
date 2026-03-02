@@ -9,4 +9,26 @@ public class HomeController {
     public String index() {
         return "index";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/impressum")
+    public String impressum() {
+        return "impressum";
+    }
+
+    @GetMapping("/englisch")
+    public String englisch() {
+        return "englisch";
+    }
+
+    @GetMapping("/russisch")
+    public String russisch() {
+        return "russisch";
+    }
 }
+
+

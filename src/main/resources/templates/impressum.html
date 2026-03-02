@@ -3,41 +3,95 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Impressum</title>
-        <link rel="stylesheet" type="text/css" href="../static/style/stylesheet.css">
+        <title>Startseite</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/style/stylesheetImpressum.css}">
+
     </head>
 
+    <!-- Verlinkungen zu Google Fonts für Logos und Schriftarten -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
+
     <body>
-        
-        <!-- Kopfleiste mit Logo und Überschrift --> 
-        <header>
-                <div class="header-container">
-                    <img src="./img/Logo.png" alt="Logo" class="logo">
-                        <div class="heading-container">    
-                            <h1>Das Impressum</h1>
-                        </div>
-                </div>
+
+    <aside class="sidebar collapsed">
+
+        <!-- Seitenleiste Kopf -->
+        <header class="sidebar-header">
+            <a href="#" class="header-logo">
+                <img src="/img/Angemeldet%20Logo.svg" alt="Logo Angemeldet">
+            </a>
+            <button class="toggler sidebar-toggler">
+                <span class="material-symbols-rounded">chevron_left</span>
+            </button>
+
+            <button class="toggler menu-toggler">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
         </header>
-        
-        <!-- Navigationsleiste --> 
-        <div>
-            <nav>
-                <ul class="navigationsleiste">
-                    <li><a href="/static">Startseite</a></li>
-                    <li><a href="3dDrucker.html">3D-Drucker</a></li>
-                    <li><a href="druckverfahren.html">Druckverfahren</a></li>
-                    <li><a href="materialien.html">Materialien</a></li>
-                    <li><a href="einsatzgebiete.html">Einsatzgebiete</a></li>
-                    <li><a href="software.html">Software</a></li>
-                    <li><a href="gcode.html">Gcode</a></li>
-                </ul>
-            </nav>
-        </div>
+
+        <nav class ="sidebar-nav">
+
+            <!-- Primärer Seitenleisten Kopf -->
+            <ul class="nav-list primary-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">dashboard</span>
+                        <span class="nav-label">Startseite</span>
+                    </a>
+                    <span class="nav-tooltip">Startseite<br>(Aktuelle Seite)</span>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">counter_1</span>
+                        <span class="nav-label">Englisch</span>
+                    </a>
+                    <span class="nav-tooltip">Englisch</span>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">counter_2</span>
+                        <span class="nav-label">Russisch</span>
+                    </a>
+                    <span class="nav-tooltip">Russisch</span>
+                </li>
+            </ul>
+
+            <!-- Sekundäre Seitenleiste Fußzeile -->
+            <ul class="nav-list secondary-nav">
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <span class="nav-icon material-symbols-rounded">account_circle</span>
+                        <span class="nav-label">Anmeldung</span>
+                    </a>
+                    <span class="nav-tooltip">Anmeldung<br>(Aktuelle Seite)</span>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon material-symbols-rounded">logout</span>
+                        <span class="nav-label">Abmelden</span>
+                    </a>
+                    <span class="nav-tooltip">Abmelden</span>
+                </li>
+
+
+            </ul>
+
+
+
+        </nav>
+
+    </aside>
+
+    <script th:src="@{/script/script.js}"></script>
 
         <!-- Haupttext --> 
-        <div class="container">
+        <div class="page-content">
             
-            <section>                       
+            <section>
                     <h1>Impressum</h1>
                     <p>Angaben gemäß § 5 TMG</p>
                     <p>Kevin Anthony Gebert<br> 
@@ -45,16 +99,16 @@
                     35428 Langgöns<br> 
                     
                 </p><p>         
-                    <strong>Vertreten durch:</strong><br>Kevin Anthony Gebert<br>        
+                    <br><strong>Vertreten durch:</strong><br>Kevin Anthony Gebert<br>
                 </p><p>        
-                    <strong>Kontakt:</strong><br>
+                    <br><strong>Kontakt:</strong><br>
                     Telefon: 06403 - 7743899<br>
                     Mobil: 0163 - 8632616<br>
                     E-Mail: <a href='mailto:kevin.anthony.gebert@tls-giessen.eu'>kevin.anthony.gebert@tls-giessen.eu</a></br>
                 </p>
-                <p><strong>Haftungsausschluss: </strong>
-                    
-                    <br><br><strong>Haftung für Inhalte</strong><br><br>
+                <br><br><p><H2>Haftungsausschluss: </H2>
+
+                    <br><strong>Haftung für Inhalte</strong><br><br>
                     Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
                     
                     <br><br><strong>Haftung für Links</strong><br><br>
@@ -75,71 +129,59 @@
                 </section>
 
             </div>
-        
-        
-        <!-- Fußleiste --> 
-        <footer class="footer">
-            <div class="footer__addr">
-                <h1 class="footer__logo">Der 3D-Druck</h1>
-                    
-                <h2>Kontakt</h2>
-                
-                <address>
-                    35428 Langgöns, Fichtenweg 3<br>
-                    <a class="footer__btn" href="mailto:kevin.anthony.gebert@tls-giessen.eu">Kontaktiere mich</a>
-                </address>
-            </div>
-            
-            <ul class="footer__nav">
-                <li class="nav__item">
-                    <h2 class="nav__title">Rechtliches</h2>
-                
-                    <ul class="nav__ul">
-                        <li>
-                            <a href="./impressum.html">Impressum</a>
-                        </li>
-                    </ul>
-                </li>
-                
-                <li class="nav__item nav__item--extra">
-                    
-                    <h2 class="nav__title"><a href="/static">Überblick</a></h2>
-                    
-                    <ul class="nav__ul nav__ul--extra">
-                        <li>
-                            <a href="./3dDrucker.html">Der 3D-Drucker</a>
-                        </li>
-                        
-                        <li>
-                            <a href="./druckverfahren.html">Die Druckverfahren</a>
-                        </li>
-                        
-                        <li>
-                            <a href="./materialien.html">Die Materialien</a>
-                        </li>
-                        
-                        <li>
-                            <a href="./einsatzgebiete.html">Die Einsatzgebiete</a>
-                        </li>
-                        
-                        <li>
-                            <a href="./software.html">Die Software</a>
-                        </li>
 
-                        <li>
-                            <a href="./gcode.html">Der Gcode</a>
-                        </li>
-                    </ul>
-                </li>                            
-            </ul>
-                
-                <div class="legal">
-                    <p>&copy; 2024 - alle Rechte vorbehalten.</p>
-                    
-                    <div class="legal__links">
-                        <span>Gemacht mit <span class="heart">♥</span></span>
-                    </div>
-                </div>
-        </footer>            
+
+    <!-- Fußleiste -->
+    <footer class="footer">
+        <div class="footer__addr">
+            <h1 class="footer__logo">vokabeltrainer</h1>
+
+            <h2>Kontakt - Kevin Anthony Gebert</h2>
+
+            <address>
+                35428 Langgöns, Fichtenweg 3<br>
+                <a class="footer__btn" href="mailto:kevin.anthony.gebert@tls-giessen.eu">Kontaktiere mich</a>
+            </address>
+        </div>
+
+        <ul class="footer__nav">
+            <li class="nav__item">
+                <h2 class="nav__title">Allgemeines & Rechtliches</h2>
+
+                <ul class="nav__ul">
+                    <li>
+                        <a href="impressum.html">Mein Profil</a>
+                    </li>
+
+                    <li>
+                        <a href="impressum.html">Impressum</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav__item nav__item--extra">
+
+                <h2 class="nav__title">Überblick</a></h2>
+
+                <ul class="nav__ul nav__ul--extra">
+                    <li>
+                        <a href="./3dDrucker.html">Russisch</a>
+                    </li>
+
+                    <li>
+                        <a href="./druckverfahren.html">Englisch</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="legal">
+            <p>&copy; 2026 - alle Rechte vorbehalten</p>
+
+            <div class="legal__links">
+                <span>Gemacht mit <span class="heart">♥</span></span>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>

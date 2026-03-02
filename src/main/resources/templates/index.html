@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Startseite</title>
-        <link  rel="stylesheet" type="text/css" th:href="@{/style/stylesheet.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/style/stylesheet.css}">
 
     </head>
 
@@ -62,7 +62,7 @@
             <ul class="nav-list secondary-nav">
             
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a th:href="@{/login}" class="nav-link">
                         <span class="nav-icon material-symbols-rounded">account_circle</span>
                         <span class="nav-label">Mein Profil</span>
                     </a>
