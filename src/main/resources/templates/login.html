@@ -16,27 +16,33 @@
             <div class="login-wrapper">
                 <div class="container" id="container">
                     <div class="form-container sign-up">
-                        <form>
+                        <form action="/registrieren" method="post">
                             <h2>Nutzerkonto erstellen</h2>
                             <span>Gib einen Nutzernamen und ein Passwort ein</span>
                             <br>
-                            <input type="text" placeholder="Nutzername">
-                            <input type="password" placeholder="Passwort">
+                            <input type="text" name="benutzername" placeholder="Nutzername" required>
+                            <input type="password" name="passwort" placeholder="Passwort" required>
                             <br>
-                            <button>Registrieren</button>
+                            <button type="submit">Registrieren</button>
+
+                            <p th:if="${fehlerRegistrierung}" th:text="${fehlerRegistrierung}" style="color:red"></p>
                         </form>
                     </div>
+
                     <div class="form-container sign-in">
-                        <form>
+                        <form action="/anmelden" method="post">
                             <h2>Anmelden / Einloggen</h2>
                             <span>Gib deinen Nutzernamen und dein Passwort ein</span>
                             <br>
-                            <input type="text" placeholder="Nutzername">
-                            <input type="password" placeholder="Passwort">
+                            <input type="text" name="benutzername" placeholder="Nutzername" required>
+                            <input type="password" name="passwort" placeholder="Passwort" required>
                             <br>
-                            <button>Anmelden</button>
+                            <button type="submit">Anmelden</button>
+
+                            <p th:if="${fehlerLogin}" th:text="${fehlerLogin}" style="color:red"></p>
                         </form>
                     </div>
+
                     <div class="toggle-container">
                         <div class="toggle">
                             <div class="toggle-panel toggle-left">

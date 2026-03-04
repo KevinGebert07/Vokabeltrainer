@@ -1,4 +1,4 @@
-package de.kevingebert.vokabeltrainer;
+package de.kevingebert.vokabeltrainer.model;
 
 import jakarta.persistence.*;
 

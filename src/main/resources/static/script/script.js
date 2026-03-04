@@ -1,3 +1,5 @@
+// --------------------- Animation für die Seitenleiste ---------------------
+
 const sidebar = document.querySelector(".sidebar");
 const sidebarToggler = document.querySelector(".sidebar-toggler");
 const menuToggler = document.querySelector(".menu-toggler");
@@ -33,6 +35,10 @@ window.addEventListener("resize", () => {
     }
 });
 
+
+
+// --------------------- Animation für die "active" Logos der Seitenleiste ---------------------
+
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');
@@ -43,4 +49,26 @@ registerBtn.addEventListener('click', () => {
 
 loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
+});
+
+
+
+// --------------------- Laden der nächsten Vokabel nach 1 Sekunde auf der Lernseite ---------------------
+
+document.addEventListener("DOMContentLoaded", () => {
+    const resultElement = document.querySelector(".learn-result");
+    const isCorrect = resultElement?.querySelector(".result-correct");
+
+    if (resultElement) {
+        // nach 1 Sekunde neue Vokabel laden
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
+    }
+
+    // Optional: Fokus automatisch auf Eingabefeld setzen
+    const deutschInput = document.getElementById("deutschInput");
+    if (deutschInput) {
+        deutschInput.focus();
+    }
 });

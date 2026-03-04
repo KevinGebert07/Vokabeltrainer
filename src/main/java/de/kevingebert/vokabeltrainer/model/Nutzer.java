@@ -1,4 +1,4 @@
-package de.kevingebert.vokabeltrainer;
+package de.kevingebert.vokabeltrainer.model;
 
 import jakarta.persistence.*;
 import java.util.ArrayList;
@@ -55,4 +55,10 @@ public class Nutzer {
     public void setListen(List<Vokabelliste> listen) {
         this.listen = listen;
     }
+
+    public void addVokabelliste(Vokabelliste liste) {
+        listen.add(liste);
+        liste.setNutzer(this);
+    }
+
 }

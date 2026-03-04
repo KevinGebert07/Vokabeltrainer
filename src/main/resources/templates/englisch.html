@@ -88,10 +88,72 @@
 
 
         <main class="page-content">
-                <span class="en-wrapper">
-                    <h1>Englische Seite</h1>
-                </span>
+            <div class="en-wrapper vocab-page">
+
+                <h1>Englische Vokabeln</h1>
+
+                <!-- Großer Lern-Button -->
+                <a th:href="@{/englisch/lernen}" class="learn-big-button">
+                    Englisch lernen
+                </a>
+
+                <!-- Formular zum Hinzufügen einer Vokabel -->
+                <form class="vocab-form"
+                      th:action="@{/englisch/vokabel-hinzufuegen}"
+                      th:object="${neueVokabel}"
+                      method="post">
+
+                    <input type="text"
+                           th:field="*{vonWort}"
+                           placeholder="Englisches Wort"
+                           required>
+
+                    <input type="text"
+                           th:field="*{zuWort}"
+                           placeholder="Deutsches Wort"
+                           required>
+
+                    <button type="submit">Vokabel hinzufügen</button>
+                </form>
+
+                <!-- Tabelle mit vorhandenen Vokabeln -->
+                <div class="vocab-table-wrapper">
+                    <table class="vocab-table">
+                        <thead>
+                        <tr>
+                            <th>Englisch</th>
+                            <th>Deutsch</th>
+                            <th>Aktionen</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="vokabel : ${vokabelliste}">
+                            <td th:text="${vokabel.vonWort}">House</td>
+                            <td th:text="${vokabel.zuWort}">Haus</td>
+                            <td>
+                                <form th:action="@{/englisch/vokabel-loeschen/{id}(id=${vokabel.id})}"
+                                      method="post"
+                                      class="inline-form">
+                                    <button type="submit" class="btn-small btn-danger">
+                                        Löschen
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(vokabelliste)}">
+                            <td colspan="3" class="table-empty">
+                                Noch keine Vokabeln vorhanden.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
         </main>
+
+
+
 
 
         <!-- Fußleiste -->
