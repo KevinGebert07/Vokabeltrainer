@@ -129,6 +129,30 @@ body {
     box-shadow: 0 8px 18px rgba(81, 45, 168, 0.45);
 }
 
+.inline-form {
+    display: inline-block;
+}
+
+.btn-small.delete-button {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #e53935;      /* Rot-Ton passend zu deinem Violett */
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.btn-small.delete-button:hover {
+    background: #c62828;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(198, 40, 40, 0.4);
+}
+
 .vocab-page {
     align-items: stretch;
     max-width: 800px;

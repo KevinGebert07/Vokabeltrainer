@@ -1,5 +1,6 @@
 package de.kevingebert.vokabeltrainer.controller;
 
+import de.kevingebert.vokabeltrainer.dto.AntwortDto;
 import de.kevingebert.vokabeltrainer.model.Nutzer;
 import de.kevingebert.vokabeltrainer.model.Vokabel;
 import de.kevingebert.vokabeltrainer.model.Vokabelliste;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Controller
 public class VokabelController {
@@ -28,6 +30,8 @@ public class VokabelController {
         this.vokabellisteRepository = vokabellisteRepository;
         this.vokabelRepository = vokabelRepository;
     }
+
+    /* --------------------- Normale Englisch-Seite --------------------- */
 
     @GetMapping("/englisch")
     public String englisch(HttpSession session, Model model) {
@@ -74,5 +78,94 @@ public class VokabelController {
         vokabelRepository.save(neueVokabel);
 
         return "redirect:/englisch";
+    }
+
+    @PostMapping("/englisch/vokabel-loeschen/{id}")
+    public String vokabelLoeschen(@PathVariable("id") Long id,
+                                  HttpSession session) {
+        Long nutzerId = (Long) session.getAttribute("nutzerId");
+        if (nutzerId == null) {
+            return "redirect:/login";
+        }
+
+        vokabelRepository.deleteById(id);
+        return "redirect:/englisch";
+    }
+
+    /* --------------------- Englisch lernen (GET) --------------------- */
+
+    @GetMapping("/englisch/lernen")
+    public String englischLernen(HttpSession session, Model model) {
+        Long nutzerId = (Long) session.getAttribute("nutzerId");
+        if (nutzerId == null) {
+            return "redirect:/login";
+        }
+
+        Nutzer nutzer = nutzerRepository.findById(nutzerId)
+                .orElseThrow(() -> new IllegalStateException("Nutzer nicht gefunden"));
+
+        Vokabelliste liste = vokabellisteRepository
+                .findByNutzerAndVonSpracheAndZuSprache(nutzer, "EN", "DE")
+                .orElseThrow(() -> new IllegalStateException("Englische Vokabelliste nicht gefunden"));
+
+        List<Vokabel> vokabeln = vokabelRepository.findByListe(liste);
+        if (vokabeln.isEmpty()) {
+            model.addAttribute("keineVokabeln", true);
+            return "englisch-lernen";
+        }
+
+        Vokabel zufaellig = zufaelligeVokabel(vokabeln);
+
+        AntwortDto antwortDto = new AntwortDto();
+        antwortDto.setVokabelId(zufaellig.getVId());
+
+        model.addAttribute("vokabel", zufaellig);
+        model.addAttribute("antwort", antwortDto);
+        model.addAttribute("ergebnisAnzeigen", false);
+
+        return "englisch-lernen";
+    }
+
+    /* --------------------- Englisch lernen (POST) --------------------- */
+
+    @PostMapping("/englisch/lernen")
+    public String englischLernenPruefen(@ModelAttribute("antwort") AntwortDto antwort,
+                                        HttpSession session,
+                                        Model model) {
+        Long nutzerId = (Long) session.getAttribute("nutzerId");
+        if (nutzerId == null) {
+            return "redirect:/login";
+        }
+
+        Optional<Vokabel> optVokabel = vokabelRepository.findById(antwort.getVokabelId());
+        if (optVokabel.isEmpty()) {
+            return "redirect:/englisch/lernen";
+        }
+
+        Vokabel vokabel = optVokabel.get();
+
+        String eingabe = antwort.getDeutschesWort() != null
+                ? antwort.getDeutschesWort().trim().toLowerCase()
+                : "";
+
+        String loesung = vokabel.getZuWort() != null
+                ? vokabel.getZuWort().trim().toLowerCase()
+                : "";
+
+        boolean richtig = eingabe.equals(loesung);
+
+        model.addAttribute("vokabel", vokabel);
+        model.addAttribute("antwort", antwort);
+        model.addAttribute("richtig", richtig);
+        model.addAttribute("ergebnisAnzeigen", true);
+
+        return "englisch-lernen";
+    }
+
+    /* --------------------- Hilfsmethode --------------------- */
+
+    private Vokabel zufaelligeVokabel(List<Vokabel> vokabeln) {
+        int index = ThreadLocalRandom.current().nextInt(vokabeln.size());
+        return vokabeln.get(index);
     }
 }

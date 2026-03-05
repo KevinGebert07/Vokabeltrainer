@@ -127,25 +127,28 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="vokabel : ${vokabelliste}">
+                        <tr th:each="vokabel : ${vokabeln}">
                             <td th:text="${vokabel.vonWort}">House</td>
                             <td th:text="${vokabel.zuWort}">Haus</td>
                             <td>
-                                <form th:action="@{/englisch/vokabel-loeschen/{id}(id=${vokabel.id})}"
+                                <form th:action="@{/englisch/vokabel-loeschen/{id}(id=${vokabel.vId})}"
                                       method="post"
                                       class="inline-form">
-                                    <button type="submit" class="btn-small btn-danger">
+                                    <button type="submit" class="btn-small btn-danger delete-button">
                                         Löschen
                                     </button>
                                 </form>
+
                             </td>
                         </tr>
-                        <tr th:if="${#lists.isEmpty(vokabelliste)}">
+
+                        <tr th:if="${#lists.isEmpty(vokabeln)}">
                             <td colspan="3" class="table-empty">
                                 Noch keine Vokabeln vorhanden.
                             </td>
                         </tr>
                         </tbody>
+
                     </table>
                 </div>
 
