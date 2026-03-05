@@ -30,14 +30,19 @@ public class HomeController {
 //        return "englisch";
 //    }
 
-    @GetMapping("/russisch")
-    public String russisch() {
-        return "russisch";
-    }
+//    @GetMapping("/russisch")
+//    public String russisch() {
+//        return "russisch";
+//    }
 
     @GetMapping("/englischLernen")
     public String englischLernen() {
         return "englischLernen";
+    }
+
+    @GetMapping("/russischLernen")
+    public String russischLernen() {
+        return "russischLernen";
     }
 }
 

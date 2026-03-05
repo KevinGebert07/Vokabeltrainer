@@ -31,6 +31,7 @@ public class VokabelController {
         this.vokabelRepository = vokabelRepository;
     }
 
+
     /* --------------------- Normale Englisch-Seite --------------------- */
 
     @GetMapping("/englisch")
@@ -92,6 +93,7 @@ public class VokabelController {
         return "redirect:/englisch";
     }
 
+
     /* --------------------- Englisch lernen (GET) --------------------- */
 
     @GetMapping("/englisch/lernen")
@@ -111,7 +113,7 @@ public class VokabelController {
         List<Vokabel> vokabeln = vokabelRepository.findByListe(liste);
         if (vokabeln.isEmpty()) {
             model.addAttribute("keineVokabeln", true);
-            return "englisch-lernen";
+            return "englischLernen";
         }
 
         Vokabel zufaellig = zufaelligeVokabel(vokabeln);
@@ -123,8 +125,9 @@ public class VokabelController {
         model.addAttribute("antwort", antwortDto);
         model.addAttribute("ergebnisAnzeigen", false);
 
-        return "englisch-lernen";
+        return "englischLernen";
     }
+
 
     /* --------------------- Englisch lernen (POST) --------------------- */
 
@@ -159,8 +162,140 @@ public class VokabelController {
         model.addAttribute("richtig", richtig);
         model.addAttribute("ergebnisAnzeigen", true);
 
-        return "englisch-lernen";
+        return "englischLernen";
     }
+
+
+    /* --------------------- Normale Russisch-Seite --------------------- */
+
+    @GetMapping("/russisch")
+    public String russisch(HttpSession session, Model model) {
+        Long nutzerId = (Long) session.getAttribute("nutzerId");
+        if (nutzerId == null) {
+            return "redirect:/login";
+        }
+
+        Nutzer nutzer = nutzerRepository.findById(nutzerId)
+                .orElseThrow(() -> new IllegalStateException("Nutzer nicht gefunden"));
+
+        Vokabelliste liste = vokabellisteRepository
+                .findByNutzerAndVonSpracheAndZuSprache(nutzer, "RU", "DE")
+                .orElseThrow(() -> new IllegalStateException("Russische Vokabelliste nicht gefunden"));
+
+        List<Vokabel> vokabeln = vokabelRepository.findByListe(liste);
+
+        model.addAttribute("liste", liste);
+        model.addAttribute("vokabeln", vokabeln);
+        model.addAttribute("neueVokabel", new Vokabel());
+
+        return "russisch";
+    }
+
+    @PostMapping("/russisch/vokabel-hinzufuegen")
+    public String russischVokabelHinzufuegen(@ModelAttribute("neueVokabel") Vokabel neueVokabel,
+                                             HttpSession session) {
+        Long nutzerId = (Long) session.getAttribute("nutzerId");
+        if (nutzerId == null) {
+            return "redirect:/login";
+        }
+
+        Nutzer nutzer = nutzerRepository.findById(nutzerId)
+                .orElseThrow(() -> new IllegalStateException("Nutzer nicht gefunden"));
+
+        Vokabelliste liste = vokabellisteRepository
+                .findByNutzerAndVonSpracheAndZuSprache(nutzer, "RU", "DE")
+                .orElseThrow(() -> new IllegalStateException("Russische Vokabelliste nicht gefunden"));
+
+        neueVokabel.setListe(liste);
+        vokabelRepository.save(neueVokabel);
+
+        return "redirect:/russisch";
+    }
+
+    @PostMapping("/russisch/vokabel-loeschen/{id}")
+    public String russischVokabelLoeschen(@PathVariable("id") Long id,
+                                          HttpSession session) {
+        Long nutzerId = (Long) session.getAttribute("nutzerId");
+        if (nutzerId == null) {
+            return "redirect:/login";
+        }
+
+        vokabelRepository.deleteById(id);
+        return "redirect:/russisch";
+    }
+
+
+    /* --------------------- Russisch lernen (GET) --------------------- */
+
+    @GetMapping("/russisch/lernen")
+    public String russischLernen(HttpSession session, Model model) {
+        Long nutzerId = (Long) session.getAttribute("nutzerId");
+        if (nutzerId == null) {
+            return "redirect:/login";
+        }
+
+        Nutzer nutzer = nutzerRepository.findById(nutzerId)
+                .orElseThrow(() -> new IllegalStateException("Nutzer nicht gefunden"));
+
+        Vokabelliste liste = vokabellisteRepository
+                .findByNutzerAndVonSpracheAndZuSprache(nutzer, "RU", "DE")
+                .orElseThrow(() -> new IllegalStateException("Russische Vokabelliste nicht gefunden"));
+
+        List<Vokabel> vokabeln = vokabelRepository.findByListe(liste);
+        if (vokabeln.isEmpty()) {
+            model.addAttribute("keineVokabeln", true);
+            return "russischLernen";
+        }
+
+        Vokabel zufaellig = zufaelligeVokabel(vokabeln);
+
+        AntwortDto antwortDto = new AntwortDto();
+        antwortDto.setVokabelId(zufaellig.getVId());
+
+        model.addAttribute("vokabel", zufaellig);
+        model.addAttribute("antwort", antwortDto);
+        model.addAttribute("ergebnisAnzeigen", false);
+
+        return "russischLernen";
+    }
+
+
+    /* --------------------- Russisch lernen (POST) --------------------- */
+
+    @PostMapping("/russisch/lernen")
+    public String russischLernenPruefen(@ModelAttribute("antwort") AntwortDto antwort,
+                                        HttpSession session,
+                                        Model model) {
+        Long nutzerId = (Long) session.getAttribute("nutzerId");
+        if (nutzerId == null) {
+            return "redirect:/login";
+        }
+
+        Optional<Vokabel> optVokabel = vokabelRepository.findById(antwort.getVokabelId());
+        if (optVokabel.isEmpty()) {
+            return "redirect:/russisch/lernen";
+        }
+
+        Vokabel vokabel = optVokabel.get();
+
+        String eingabe = antwort.getDeutschesWort() != null
+                ? antwort.getDeutschesWort().trim().toLowerCase()
+                : "";
+
+        String loesung = vokabel.getZuWort() != null
+                ? vokabel.getZuWort().trim().toLowerCase()
+                : "";
+
+        boolean richtig = eingabe.equals(loesung);
+
+        model.addAttribute("vokabel", vokabel);
+        model.addAttribute("antwort", antwort);
+        model.addAttribute("richtig", richtig);
+        model.addAttribute("ergebnisAnzeigen", true);
+
+        return "russischLernen";
+    }
+
 
     /* --------------------- Hilfsmethode --------------------- */
 

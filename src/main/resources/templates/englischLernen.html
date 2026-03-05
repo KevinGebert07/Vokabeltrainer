@@ -1,187 +1,184 @@
 <!DOCTYPE html>
 <html lang="de" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Englisch</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/style/stylesheet.css}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Englisch</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/style/stylesheet.css}">
 
-</head>
+    </head>
 
-<!-- Verlinkungen zu Google Fonts für Logos und Schriftarten -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
+    <!-- Verlinkungen zu Google Fonts für Logos und Schriftarten -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
 
-<body>
+    <body>
 
-<aside class="sidebar collapsed">
+        <aside class="sidebar collapsed">
 
-    <!-- Seitenleiste Kopf -->
-    <header class="sidebar-header">
-        <a href="#" class="header-logo">
-            <img src="./img/Angemeldet Logo.svg" alt="Logo Angemeldet">
-        </a>
-        <button class="toggler sidebar-toggler">
-            <span class="material-symbols-rounded">chevron_left</span>
-        </button>
-
-        <button class="toggler menu-toggler">
-            <span class="material-symbols-rounded">menu</span>
-        </button>
-    </header>
-
-    <nav class ="sidebar-nav">
-
-        <!-- Primärer Seitenleisten Kopf -->
-        <ul class="nav-list primary-nav">
-            <li class="nav-item">
-                <a th:href="@{/index}" class="nav-link">
-                    <span class="nav-icon material-symbols-rounded">dashboard</span>
-                    <span class="nav-label">Startseite</span>
+            <!-- Seitenleiste Kopf -->
+            <header class="sidebar-header">
+                <a href="#" class="header-logo">
+                    <img src="./img/Angemeldet Logo.svg" alt="Logo Angemeldet">
                 </a>
-                <span class="nav-tooltip">Startseite</span>
-            </li>
+                <button class="toggler sidebar-toggler">
+                    <span class="material-symbols-rounded">chevron_left</span>
+                </button>
 
-            <li class="nav-item">
-                <a th:href="@{/englisch}" class="nav-link active">
-                    <span class="nav-icon material-symbols-rounded">counter_1</span>
-                    <span class="nav-label">Englisch<br>(Aktuelle Seite)</span>
-                </a>
-                <span class="nav-tooltip">Englisch<br>(Aktuelle Seite)</span>
-            </li>
+                <button class="toggler menu-toggler">
+                    <span class="material-symbols-rounded">menu</span>
+                </button>
+            </header>
 
-            <li class="nav-item">
-                <a th:href="@{/russisch}" class="nav-link">
-                    <span class="nav-icon material-symbols-rounded">counter_2</span>
-                    <span class="nav-label">Russisch</span>
-                </a>
-                <span class="nav-tooltip">Russisch</span>
-            </li>
-        </ul>
+            <nav class ="sidebar-nav">
 
-        <!-- Sekundäre Seitenleiste Fußzeile -->
-        <ul class="nav-list secondary-nav">
+                <!-- Primärer Seitenleisten Kopf -->
+                <ul class="nav-list primary-nav">
+                    <li class="nav-item">
+                        <a th:href="@{/index}" class="nav-link">
+                            <span class="nav-icon material-symbols-rounded">dashboard</span>
+                            <span class="nav-label">Startseite</span>
+                        </a>
+                        <span class="nav-tooltip">Startseite</span>
+                    </li>
 
-            <li class="nav-item">
-                <a th:href="@{/login}" class="nav-link">
-                    <span class="nav-icon material-symbols-rounded">account_circle</span>
-                    <span class="nav-label">Anmeldung</span>
-                </a>
-                <span class="nav-tooltip">Anmeldung</span>
-            </li>
+                    <li class="nav-item">
+                        <a th:href="@{/englisch}" class="nav-link active">
+                            <span class="nav-icon material-symbols-rounded">counter_1</span>
+                            <span class="nav-label">Englisch<br>(Aktuelle Seite)</span>
+                        </a>
+                        <span class="nav-tooltip">Englisch<br>(Aktuelle Seite)</span>
+                    </li>
 
-            <li class="nav-item">
-                <a th:href="@{/abgemeldet}" class="nav-link">
-                    <span class="nav-icon material-symbols-rounded">logout</span>
-                    <span class="nav-label">Abmelden</span>
-                </a>
-                <span class="nav-tooltip">Abmelden</span>
-            </li>
+                    <li class="nav-item">
+                        <a th:href="@{/russisch}" class="nav-link">
+                            <span class="nav-icon material-symbols-rounded">counter_2</span>
+                            <span class="nav-label">Russisch</span>
+                        </a>
+                        <span class="nav-tooltip">Russisch</span>
+                    </li>
+                </ul>
 
-        </ul>
+                <!-- Sekundäre Seitenleiste Fußzeile -->
+                <ul class="nav-list secondary-nav">
 
-    </nav>
+                    <li class="nav-item">
+                        <a th:href="@{/login}" class="nav-link">
+                            <span class="nav-icon material-symbols-rounded">account_circle</span>
+                            <span class="nav-label">Anmeldung</span>
+                        </a>
+                        <span class="nav-tooltip">Anmeldung</span>
+                    </li>
 
-</aside>
+                    <li class="nav-item">
+                        <a th:href="@{/abgemeldet}" class="nav-link">
+                            <span class="nav-icon material-symbols-rounded">logout</span>
+                            <span class="nav-label">Abmelden</span>
+                        </a>
+                        <span class="nav-tooltip">Abmelden</span>
+                    </li>
 
-<script th:src="@{/script/script.js}"></script>
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <script th:src="@{/script/script.js}"></script>
 
 
 
-<main class="page-content">
-    <div class="learn-wrapper">
-        <h1>Englisch lernen</h1>
+        <main class="page-content">
+            <div class="learn-wrapper">
+                <h1>Englisch lernen</h1>
 
-        <!-- Karte mit aktueller Vokabel -->
-        <div class="learn-card">
-            <div class="learn-question">
-                <p class="learn-label">Englisches Wort</p>
-                <p class="learn-word" th:text="${vokabel.vonWort}">House</p>
+                <!-- Karte mit aktueller Vokabel -->
+                <div class="learn-card">
+                    <div class="learn-question">
+                        <p class="learn-label">Englisches Wort</p>
+                        <p class="learn-word" th:text="${vokabel.vonWort}">House</p>
+                    </div>
+
+                    <!-- Formular für Antwort -->
+                    <form class="learn-form"
+                          th:action="@{/englisch/lernen}"
+                          th:object="${antwort}"
+                          method="post">
+
+                        <!-- Vokabel-ID versteckt mitsenden -->
+                        <input type="hidden" th:field="*{vokabelId}"/>
+
+                        <label for="deutschInput" class="learn-label">Deutsches Wort</label>
+                        <input id="deutschInput" type="text"
+                               th:field="*{deutschesWort}"
+                               placeholder="Deutsches Wort eingeben"
+                               autocomplete="off" required>
+
+                        <button type="submit">Antwort prüfen</button>
+                    </form>
+
+                    <!-- Ergebnis-Nachricht -->
+                    <div class="learn-result" th:if="${ergebnisAnzeigen}">
+                        <p th:if="${richtig}" class="result-correct">Richtig! 🎉</p>
+                        <p th:if="${not richtig}" class="result-wrong">
+                            Falsch – richtige Lösung: <span th:text="${vokabel.zuWort}">Haus</span>
+                        </p>
+                        <p class="learn-timer">Nächste Vokabel in: <span id="nextTimer">1.00</span> Sekunden</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Fußleiste -->
+        <footer class="footer">
+            <div class="footer__addr">
+                <h1 class="footer__logo">vokabeltrainer</h1>
+
+                <h2>Kontakt - Kevin Anthony Gebert</h2>
+
+                <address>
+                    35428 Langgöns, Fichtenweg 3<br>
+                    <a class="footer__btn" href="mailto:kevin.anthony.gebert@tls-giessen.eu">Kontaktiere mich</a>
+                </address>
             </div>
 
-            <!-- Formular für Antwort -->
-            <form class="learn-form"
-                  th:action="@{/englisch/lernen}"
-                  th:object="${antwort}"
-                  method="post">
+            <ul class="footer__nav">
+                <li class="nav__item">
+                    <h2 class="nav__title">Allgemeines & Rechtliches</h2>
 
-                <!-- Vokabel-ID versteckt mitsenden -->
-                <input type="hidden" th:field="*{vokabelId}"/>
+                    <ul class="nav__ul">
+                        <li>
+                            <a th:href="@{/login}">Registrierung & Anmeldung</a>
+                        </li>
 
-                <label for="deutschInput" class="learn-label">Deutsches Wort</label>
-                <input id="deutschInput" type="text"
-                       th:field="*{deutschesWort}"
-                       placeholder="Deutsches Wort eingeben"
-                       autocomplete="off" required>
+                        <li>
+                            <a th:href="@{/impressum}">Impressum</a>
+                        </li>
+                    </ul>
+                </li>
 
-                <button type="submit">Antwort prüfen</button>
-            </form>
+                <li class="nav__item nav__item--extra">
 
-            <!-- Ergebnis-Nachricht -->
-            <div class="learn-result" th:if="${ergebnisAnzeigen}">
-                <p th:if="${richtig}" class="result-correct">Richtig! 🎉</p>
-                <p th:if="${not richtig}" class="result-wrong">
-                    Falsch – richtige Lösung: <span th:text="${vokabel.zuWort}">Haus</span>
-                </p>
+                    <h2 class="nav__title">Überblick</h2>
+
+                    <ul class="nav__ul nav__ul--extra">
+                        <li>
+                            <a th:href="@{/russisch}">Russisch</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/englisch}">Englisch</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="legal">
+                <p>&copy; 2026 - alle Rechte vorbehalten</p>
+
+                <div class="legal__links">
+                    <span>Gemacht mit <span class="heart">♥</span></span>
+                </div>
             </div>
-        </div>
-    </div>
-</main>
-
-
-
-
-
-<!-- Fußleiste -->
-<footer class="footer">
-    <div class="footer__addr">
-        <h1 class="footer__logo">vokabeltrainer</h1>
-
-        <h2>Kontakt - Kevin Anthony Gebert</h2>
-
-        <address>
-            35428 Langgöns, Fichtenweg 3<br>
-            <a class="footer__btn" href="mailto:kevin.anthony.gebert@tls-giessen.eu">Kontaktiere mich</a>
-        </address>
-    </div>
-
-    <ul class="footer__nav">
-        <li class="nav__item">
-            <h2 class="nav__title">Allgemeines & Rechtliches</h2>
-
-            <ul class="nav__ul">
-                <li>
-                    <a th:href="@{/login}">Registrierung & Anmeldung</a>
-                </li>
-
-                <li>
-                    <a th:href="@{/impressum}">Impressum</a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="nav__item nav__item--extra">
-
-            <h2 class="nav__title">Überblick</h2>
-
-            <ul class="nav__ul nav__ul--extra">
-                <li>
-                    <a th:href="@{/russisch}">Russisch</a>
-                </li>
-
-                <li>
-                    <a th:href="@{/englisch}">Englisch</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-
-    <div class="legal">
-        <p>&copy; 2026 - alle Rechte vorbehalten</p>
-
-        <div class="legal__links">
-            <span>Gemacht mit <span class="heart">♥</span></span>
-        </div>
-    </div>
-</footer>
-</body>
+        </footer>
+    </body>
 </html>
