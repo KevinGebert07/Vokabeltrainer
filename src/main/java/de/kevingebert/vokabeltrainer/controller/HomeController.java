@@ -5,10 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-    @GetMapping("/index")
-    public String index() {
-        return "index";
+    @GetMapping("/index")       // Wenn /index aufgerufen wird
+    public String index() {        // Methode index aufrufen
+        return "index";            // index.html anzeigen
     }
+
+// -------- Vorher genutzte Routen - inzwischen in andere Controller ausgelagert --------
 
 //    @GetMapping("/login")
 //    public String login() {
@@ -20,10 +22,15 @@ public class HomeController {
 //        return "abgemeldet";
 //    }
 
-    @GetMapping("/impressum")
-    public String impressum() {
-        return "impressum";
+// ---------------------------------------------------------------------------------------
+
+    @GetMapping("/impressum")    // Wenn /impressum aufgerufen wird
+    public String impressum() {    // Methode impressum aufrufen
+        return "impressum";        // impressum.html anzeigen
     }
+
+
+// -------- Vorher genutzte Routen - inzwischen in andere Controller ausgelagert --------
 
 //    @GetMapping("/englisch")
 //    public String englisch() {
@@ -35,14 +42,16 @@ public class HomeController {
 //        return "russisch";
 //    }
 
-    @GetMapping("/englischLernen")
-    public String englischLernen() {
-        return "englischLernen";
+// ---------------------------------------------------------------------------------------
+
+    @GetMapping("/englischLernen")      // Wenn /englischLernen aufgerufen wird
+    public String englischLernen() {       // Methode englischLernen aufrufen
+        return "englischLernen";           // englischLernen.html anzeigen
     }
 
-    @GetMapping("/russischLernen")
-    public String russischLernen() {
-        return "russischLernen";
+    @GetMapping("/russischLernen")      // Wenn /russischLernen aufgerufen wird
+    public String russischLernen() {       // Methode russischLernen aufrufen
+        return "russischLernen";           // russischLernen.html anzeigen
     }
 }
 

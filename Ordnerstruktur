@@ -1,0 +1,52 @@
+Vokabeltrainer
+├─ build
+├─ data
+├─ gradle
+├─ src
+│  └─ main
+│     ├─ java
+│     │  └─ de
+│     │     └─ kevingebert
+│     │        └─ vokabeltrainer
+│     │           ├─ VokabeltrainerApplication.java   # Startklasse (main-Methode)
+│     │           ├─ controller                       # Steuerung der Seiten
+│     │           │  ├─ AuthController.java
+│     │           │  ├─ HomeController.java
+│     │           │  └─ VokabelController.java
+│     │           ├─ dto                              # DTO --> Daten-Transfer-Objekte
+│     │           │  └─ AntwortDto.java
+│     │           ├─ model                            # Erzeugte Entitätstypen mithilfe von Java (DB-Tabellen)
+│     │           │  ├─ Nutzer.java
+│     │           │  ├─ Vokabel.java
+│     │           │  └─ Vokabelliste.java
+│     │           ├─ repository                       # Repositories für Datenbank Zugriff
+│     │           │  ├─ NutzerRepository.java
+│     │           │  ├─ VokabellisteRepository.java
+│     │           │  └─ VokabelRepository.java
+│     │           └─ service                          # Logik der Fächer
+│     │              └─ AuthService.java
+│     └─ resources
+│        ├─ static                                    # Statische Seiten (ohne Veränderungen)
+│        │  ├─ img                                    # Bilder
+│        │  │  ├─ Abgemeldet Logo.png
+│        │  │  ├─ Abgemeldet Logo.svg
+│        │  │  ├─ Angemeldet Logo.png
+│        │  │  ├─ Angemeldet Logo.svg
+│        │  │  └─ Vokabeln lernen mit allen Sinnen.png
+│        │  ├─ script                                 # JavaScript
+│        │  │  └─ script.js
+│        │  └─ style                                  # CSS
+│        │     ├─ stylesheet.css                      # Standard Stylesheet
+│        │     └─ stylesheetImpressum.css             # Stylesheet für Impressum
+│        ├─ templates                                 # Dynamische HTML-Seiten (Thymeleaf)
+│        │  ├─ Abgemeldet.html
+│        │  ├─ englisch.html
+│        │  ├─ englischLernen.html
+│        │  ├─ impressum.html
+│        │  ├─ index.html
+│        │  ├─ login.html
+│        │  ├─ russisch.html
+│        │  └─ russischLernen.html
+│        └─ application.properties                    # Konfiguration des Projektes (DB, Port, etc.)
+├─ build.gradle                                       # Build-Konfiguration
+└─ settings.gradle                                    # Projekt-Name, Gradle-Setup

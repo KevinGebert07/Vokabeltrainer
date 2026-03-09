@@ -1,67 +1,68 @@
-package de.kevingebert.vokabeltrainer.controller;
+package de.kevingebert.vokabeltrainer.controller;               // Paket, in dem der Controller liegt
 
-import de.kevingebert.vokabeltrainer.model.Nutzer;
-import de.kevingebert.vokabeltrainer.service.AuthService;
-import jakarta.servlet.http.HttpSession;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import de.kevingebert.vokabeltrainer.model.Nutzer;              // Import des Nutzer-Entitätstypen
+import de.kevingebert.vokabeltrainer.service.AuthService;       // Import des Anmeldungsservice
+import jakarta.servlet.http.HttpSession;                        // Import der Sessionverwaltung eines eingeloggten Nutzers
+import org.springframework.stereotype.Controller;               // Markiert diese Klasse als Spring MVC Controller
+import org.springframework.ui.Model;                            // Transportiert Daten an das HTML-Template
+import org.springframework.web.bind.annotation.*;               // Annotationen wie @GetMapping, @PostMapping
 
 import java.util.Optional;
 
-@Controller
+@Controller                                              // Klasse bearbeitet Web-Anfragen
 public class AuthController {
 
-    private final AuthService authService;
+    private final AuthService authService;                  // Assoziation zum Service der Login & Registrierung erledigt
 
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService) {    // Konstruktor
         this.authService = authService;
     }
 
-    // Zeigt immer die login.html mit beiden Formularen
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "login";
+    @GetMapping("/login")                                // Wenn /login aufgerufen wird
+    public String showLoginPage() {                         // Methode showLoginPage nutzen
+        return "login";                                     // Thymeleaf-Template "login.html" zurückgeben
     }
 
-    @PostMapping("/registrieren")
-    public String handleRegister(@RequestParam String benutzername,
-                                 @RequestParam String passwort,
-                                 Model model) {
+    @PostMapping("/registrieren")                                        // POST-Anfrage auf /registrieren (Registrierung verarbeiten)
+    public String handleRegister(@RequestParam String benutzername,         // Formularfeld "benutzername" auslesen
+                                 @RequestParam String passwort,             // Formularfeld "passwort" auslesen
+                                 Model model) {                             // Model für Erfolgs-/Fehlermeldungen
 
-        boolean ok = authService.registrieren(benutzername, passwort);
-        if (!ok) {
-            model.addAttribute("fehlerRegistrierung", "Benutzername ist bereits vergeben.");
-        } else {
-            model.addAttribute("fehlerRegistrierung", "Registrierung erfolgreich. Bitte anmelden.");
+        boolean ok = authService.registrieren(benutzername, passwort);      // Service versucht, neuen Nutzer anzulegen
+        if (!ok) {                                                          // Wenn Registrierung fehlgeschlagen ist
+            model.addAttribute("fehlerRegistrierung",          // Meldung unter dem Registrier-Formular
+                    "Benutzername ist bereits vergeben.");
+        } else {                                                            // Wenn Registrierung erfolgreich war
+            model.addAttribute("fehlerRegistrierung",          // Anzeigen der Erfolgsnachricht
+                    "Registrierung erfolgreich. Bitte anmelden.");
         }
-        // gleiche Seite wieder anzeigen
-        return "login";
+        return "login";                                                     // In beiden Fällen login.html anzeigen
     }
 
-    @PostMapping("/anmelden")
-    public String handleLogin(@RequestParam String benutzername,
-                              @RequestParam String passwort,
-                              HttpSession session,
-                              Model model) {
+    @PostMapping("/anmelden")                                                // POST-Anfrage auf /anmelden (Login verarbeiten)
+    public String handleLogin(@RequestParam String benutzername,                // Benutzername aus dem Formular
+                              @RequestParam String passwort,                    // Passwort aus dem Formular
+                              HttpSession session,                              // Session-Objekt um sich den Login zu merken
+                                  Model model) {                                // Model für Fehlermeldung
 
-        Optional<Nutzer> nutzerOpt = authService.einloggen(benutzername, passwort);
-        if (nutzerOpt.isEmpty()) {
-            model.addAttribute("fehlerLogin", "Nutzername oder Passwort falsch.");
-            return "login";
+        Optional<Nutzer> nutzerOpt = authService.einloggen(benutzername, passwort);         // Service prüft Login-Daten
+        if (nutzerOpt.isEmpty()) {                                                          // Wenn kein Nutzer gefunden wurde
+            model.addAttribute("fehlerLogin",                                  // Fehlermeldung für die Login-Seite
+                    "Nutzername oder Passwort falsch.");
+                return "login";                                                             // Login-Seite erneut anzeigen
         }
 
-        Nutzer nutzer = nutzerOpt.get();
-        session.setAttribute("nutzerId", nutzer.getNId());
-        session.setAttribute("nutzerName", nutzer.getBenutzername());
+        Nutzer nutzer = nutzerOpt.get();                                           // Nutzer aus dem Optional holen
+        session.setAttribute("nutzerId", nutzer.getNId());                      // Nutzer-ID in der Session speichern
+        session.setAttribute("nutzerName", nutzer.getBenutzername());           // Benutzername in der Session speichern
 
-        return "redirect:/index";  // nach erfolgreichem Login auf Startseite
+        return "redirect:/index";                                                  // nach erfolgreichem Login auf Startseite umleiten
     }
 
-    @GetMapping("/abgemeldet")
+    @GetMapping("/abgemeldet")                       // Wenn /abgemeldet aufgerufen wird
     public String logout(HttpSession session) {
-        session.invalidate();   // Nutzer abmelden (Session leeren)
-        return "abgemeldet";    // abgemeldet.html anzeigen
+            session.invalidate();                       // Nutzer abmelden: komplette Session löschen
+        return "abgemeldet";                            // abgemeldet.html anzeigen
     }
 
 }
